@@ -14,7 +14,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 
 
-# Replace YOUR_STOCK_SYMBOL with the stock symbol you want to fetch
+# data
 yfin.pdr_override()
 df = pdr.get_data_yahoo('AAPL', start = '1980-12-12', end = '2022-12-17')
 print(df.head)
@@ -121,7 +121,7 @@ for i, skip_connection in enumerate(skip_connections):
 model_output = Add()(skip_outputs)
 model = Model(inputs=input_layer, outputs=model_output)
 adam_optimizer = Adam(lr=1e-4)
-model.compile(optimizer=adam_optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+model.compile(optimizer=adam_optimizer, loss='mae', metrics=['accuracy'])
 model.summary()
 
 # train model
